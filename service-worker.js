@@ -22,8 +22,9 @@ self.addEventListener("install", (event) => {
     caches.open(CURRENT_CACHE).then((cache) => {
       return cache.addAll([
         "./", // /index.html
-        "./style.css",
         "./favicon.ico",
+        "./manifest.json",
+        "./style.css",
         "./checkbox.svg",
       ]);
     })
