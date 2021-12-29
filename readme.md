@@ -28,6 +28,11 @@ serve -l 8000 .
 open http://localhost:8000/
 ```
 
+## Live site
+
+The live site is hosted on github pages.
+https://pirfalt.github.io/pwa-test/
+
 ## Gotchas
 
 > Turns out that when you call `navigator.serviceWorker.register('service-worker.js)` the request for `service-worker.js` _isn't_ intercepted by any service worker's `fetch` event handler.
