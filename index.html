@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="PWA test" />
-    <link rel="apple-touch-icon" href="/logo192.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <title>PWA test</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <h1>PWA test</h1>
-    <button id="button">Add Robot</button>
-    <button id="upgrade">Upgrade</button>
-    <button id="clear">Clear</button>
-    <div id="output"></div>
-    <script type="module" src="/main.js"></script>
+    <h1>Something more</h1>
+    <img src="./checkbox.svg" />
+
+    <script type="module">
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("./service-worker.js", {})
+          .then((reg) => {
+            // registration worked
+            // debugger;
+            console.log("Registration succeeded. Scope is " + reg.scope);
+          })
+          .catch((error) => {
+            // registration failed
+            debugger;
+            console.log("Registration failed with " + error);
+          });
+      } else {
+        console.error("Wont work!");
+      }
+    </script>
   </body>
 </html>
