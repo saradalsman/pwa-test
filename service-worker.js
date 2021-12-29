@@ -21,10 +21,10 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CURRENT_CACHE).then((cache) => {
       return cache.addAll([
-        "/", // /index.html
-        "/style.css",
-        "/favicon.ico",
-        "/checkbox.svg",
+        "./", // /index.html
+        "./style.css",
+        "./favicon.ico",
+        "./checkbox.svg",
       ]);
     })
   );
@@ -101,7 +101,7 @@ async function serverFirstAndRefresh(request) {
 async function fetchAndRefresh(request, cache) {
   try {
     const onlineResponse = await fetch(request);
-    const resClone = response.clone();
+    const resClone = onlineResponse.clone();
     cache.put(request, resClone);
     return onlineResponse;
   } catch (err) {
