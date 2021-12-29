@@ -45,11 +45,40 @@ However _that_ special request _does_ respect the http caching headers. So that 
 
 - [x] Introduction and background.
 - [x] Watch [100 second youtube introduction](https://youtu.be/sFsRylCQblw?list=PLLHiuVbsSGYrq8kP6lNV5BXOYfe3PBCCO).
-- [ ] Offline support.
-- [ ] Manifest.
+- [x] Offline support.
+  - [x] Basic cache strategies.
+    - Cache only.
+    - Cache first, refresh in background.
+    - Server first, with refresh, fallback to cache.
+- [x] Manifest.
+  - https://developer.mozilla.org/en-US/docs/Web/Manifest
+  - https://www.pwabuilder.com/imageGenerator
+  - https://manifest-gen.netlify.app/
+  - https://app-manifest.firebaseapp.com/
+  - ```
+    {
+      "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+      "name": "PWA test lab",
+      "short_name": "PWA test",
+      "start_url": ".",
+      "display": "standalone",
+      "theme_color": "#ff0000",
+      "background_color": "#000000",
+      "description": "PWA Test Webpage",
+      "icons": [
+        {
+          "src": "icons/ios/100.png",
+          "sizes": "100x100"
+        }
+        ...
+      ]
+    }
+    ```
 - [ ] App idea choice.
 - [ ] UX experimentation.
   - [ ] How do you "install" a PWA? Is it good enough?
+  - Add to home screen on IOS 😢
+  - TODO(android): @sara/@alex, tomorrow.
 - [ ] Support "research".
 - [ ] Forms, 100% client side.
 - [ ] Storage alternatives?
