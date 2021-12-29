@@ -8,7 +8,6 @@
 - [Introduction to Service Worker](https://developers.google.com/web/ilt/pwa/introduction-to-service-worker)
 - [100 second youtube introduction](https://youtu.be/sFsRylCQblw?list=PLLHiuVbsSGYrq8kP6lNV5BXOYfe3PBCCO)
 - [Talk by Jake Archibald](https://youtu.be/cmGr0RszHc8?list=PLLHiuVbsSGYrq8kP6lNV5BXOYfe3PBCCO)
-
 - [Service Worker Caching and HTTP Caching](https://dev.to/jonchen/service-worker-caching-and-http-caching-p82)
 - [MDN HTTP caching](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)
 - [Caching best practices & max-age gotchas](https://jakearchibald.com/2016/caching-best-practices/)
