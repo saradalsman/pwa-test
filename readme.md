@@ -16,15 +16,38 @@
 
 ### Prerequisite
 
+```sh
+# Dependencies
+npm install
 ```
+
+```sh
+# Only required for testing the production build locally
 npm install -g serve
 ```
 
 ### Start
 
+```sh
+# Dev environment
+npm run dev
 ```
-serve -l 8000 .
-open http://localhost:8000/
+
+```sh
+# Build prod
+npm run build
+
+# Test prod locally
+serve -l 8000 docs
+```
+
+### Deploy
+
+Since we are using gh-pages, every push is a deployment. However only the `/docs` folder is served. Therefor a production build is required before the push.
+
+```sh
+npm run build
+git push
 ```
 
 ## Live site
