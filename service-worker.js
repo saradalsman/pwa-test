@@ -22,10 +22,10 @@ self.addEventListener("install", (event) => {
     caches.open(CURRENT_CACHE).then((cache) => {
       return cache.addAll([
         "./", // /index.html
-        "./favicon.ico",
+        // "./favicon.ico",
         "./manifest.json",
-        "./style.css",
-        "./checkbox.svg",
+        // "./style.css",
+        // "./checkbox.svg",
       ]);
     })
   );
@@ -102,11 +102,14 @@ async function serverFirstAndRefresh(request) {
 async function fetchAndRefresh(request, cache) {
   try {
     const onlineResponse = await fetch(request);
-    const resClone = onlineResponse.clone();
-    cache.put(request, resClone);
+    debug("fetch req", new URL(request.url).protocol);
+    if (new URL(request.url).protocol != "chrome-extension:") {
+      const resClone = onlineResponse.clone();
+      await cache.put(request, resClone);
+    }
     return onlineResponse;
   } catch (err) {
-    debug("fetch error", err);
+    warn("fetch or cache error", err);
     return undefined;
   }
 }

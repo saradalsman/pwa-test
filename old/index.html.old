@@ -2,17 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PWA App</title>
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App</title>
+    <link rel="stylesheet" href="./style.css" />
     <link rel="manifest" href="./manifest.json" />
     <link rel="apple-touch-icon" href="./icons/ios/1024.png" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <header>
+      <h1>Something more</h1>
+      <img src="./checkbox.svg" />
+    </header>
+
+    <main>
+      <ol>
+        <li>Build app</li>
+        <li>Input</li>
+        <li>Camera input</li>
+      </ol>
+    </main>
 
     <script type="module">
       if ("serviceWorker" in navigator) {
