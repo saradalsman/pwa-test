@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "./checkbox.svg";
 import classes from "./App.module.css";
+import db, { tasksKey } from "./db";
 
 function App() {
   return (
@@ -30,49 +31,18 @@ function TodoList() {
     text: string;
     checked: boolean;
   };
-  const [tasks, setTasks] = useState([
-    {
-      text: "Build tools",
-      checked: true,
-    },
-    {
-      text: "Create page layout",
-      checked: true,
-    },
-    {
-      text: "Input fields",
-      checked: false,
-    },
-    {
-      text: "Upload images",
-      checked: false,
-    },
+  const [tasks, setTasks] = useState<TodoItem[]>([]);
 
-    {
-      text: "Input fields",
-      checked: false,
-    },
-    {
-      text: "Upload images",
-      checked: false,
-    },
-    {
-      text: "Build tools",
-      checked: true,
-    },
-    {
-      text: "Create page layout",
-      checked: true,
-    },
-    {
-      text: "Input fields",
-      checked: false,
-    },
-    {
-      text: "Upload images",
-      checked: false,
-    },
-  ]);
+  useEffect(() => {
+    db.getItem<TodoItem[]>(tasksKey)
+      .then((dbTasks) => setTasks(dbTasks ?? []))
+      .catch((err) => console.error("failed to load!", err));
+  }, []);
+  useEffect(() => {
+    db.setItem(tasksKey, tasks).catch((err) =>
+      console.error("failed to save!", err)
+    );
+  }, [tasks]);
 
   const checkItem = (i: number) => {
     const next = [...tasks];
