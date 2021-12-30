@@ -47,6 +47,8 @@ Since we are using gh-pages, every push is a deployment. However only the `/docs
 
 ```sh
 npm run build
+git add docs
+git commit -m "Deploy production build"
 git push
 ```
 
