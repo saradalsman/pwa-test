@@ -3,14 +3,37 @@ import logo from "./checkbox.svg";
 import classes from "./App.module.css";
 
 function App() {
-  const tasks = [
+  return (
+    <div className={classes["App"]}>
+      <Header />
+      <main>
+        <TodoList />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
+
+function Header() {
+  return (
+    <header className={classes["App-header"]}>
+      <h1>PWA test</h1>
+      <img src={logo} className={classes["App-logo"]} alt="logo" />
+    </header>
+  );
+}
+
+function TodoList() {
+  const [tasks, setTasks] = useState([
     {
       text: "Build tools",
       checked: true,
     },
     {
       text: "Create page layout",
-      checked: false,
+      checked: true,
     },
     {
       text: "Input fields",
@@ -20,36 +43,51 @@ function App() {
       text: "Upload images",
       checked: false,
     },
-  ];
+  ]);
+
+  const checkItem = (i: number) => {
+    const next = [...tasks];
+    next[i].checked = !next[i].checked;
+    setTasks(next);
+  };
 
   return (
-    <div className={classes["App"]}>
-      <header className={classes["App-header"]}>
-        <h1>PWA test</h1>
-        <img src={logo} className={classes["App-logo"]} alt="logo" />
-      </header>
-      <main>
-        <form>
-          <ol className={classes["Todo-list"]}>
-            {tasks.map((item) => {
-              return (
-                <li>
-                  <input
-                    id={item.text}
-                    type="checkbox"
-                    checked={item.checked}
-                    onChange={(e) => console.log(e)}
-                  />
-                  <label htmlFor={item.text}>{item.text}</label>
-                </li>
-              );
-            })}
-          </ol>
-        </form>
-      </main>
-      <footer></footer>
-    </div>
+    <form>
+      <ol className={classes["Todo-list"]}>
+        {tasks.map((item, i) => {
+          return (
+            <li key={i}>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={item.checked}
+                  onChange={() => checkItem(i)}
+                />
+                {item.text}
+              </label>
+            </li>
+          );
+        })}
+      </ol>
+    </form>
   );
 }
 
-export default App;
+function Footer() {
+  return (
+    <footer className={classes["Footer"]}>
+      <div className={classes["Footer-item"]}>
+        <img src={logo} alt="logo" />
+        <span>history</span>
+      </div>
+      <div className={classes["Footer-item"]}>
+        <img src={logo} alt="logo" />
+        <span>sync</span>
+      </div>
+      <div className={classes["Footer-item"]}>
+        <img src={logo} alt="logo" />
+        <span>other</span>
+      </div>
+    </footer>
+  );
+}
