@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "PWA test lab",
+  "short_name": "PWA test",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#0000ff",
+  "description": "PWA Test Webpage",
+  "icons": [
+    {
+      "src": "icons/ios/100.png",
+      "sizes": "100x100"
+    },
+    {
+      "src": "icons/ios/114.png",
+      "sizes": "114x114"
+    },
+    {
+      "src": "icons/ios/120.png",
+      "sizes": "120x120"
+    },
+    {
+      "src": "icons/ios/128.png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "icons/ios/144.png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "icons/ios/152.png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "icons/ios/167.png",
+      "sizes": "167x167"
+    },
+    {
+      "src": "icons/ios/180.png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "icons/ios/192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icons/ios/256.png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "icons/ios/512.png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "icons/ios/1024.png",
+      "sizes": "1024x1024"
+    }
+  ]
+}
