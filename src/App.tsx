@@ -26,7 +26,36 @@ function Header() {
 }
 
 function TodoList() {
+  type TodoItem = {
+    text: string;
+    checked: boolean;
+  };
   const [tasks, setTasks] = useState([
+    {
+      text: "Build tools",
+      checked: true,
+    },
+    {
+      text: "Create page layout",
+      checked: true,
+    },
+    {
+      text: "Input fields",
+      checked: false,
+    },
+    {
+      text: "Upload images",
+      checked: false,
+    },
+
+    {
+      text: "Input fields",
+      checked: false,
+    },
+    {
+      text: "Upload images",
+      checked: false,
+    },
     {
       text: "Build tools",
       checked: true,
@@ -51,8 +80,29 @@ function TodoList() {
     setTasks(next);
   };
 
+  const addItem = (item: TodoItem) => {
+    const next = [...tasks, item];
+    setTasks(next);
+  };
+
   return (
-    <form>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        const selectorQuery = `.${classes["Todo-input"]}`;
+        const itemInputElement = e.currentTarget.querySelector(selectorQuery);
+        if (itemInputElement != null) {
+          const inputElement = itemInputElement as any;
+
+          const newText = inputElement.value;
+          inputElement.value = "";
+          addItem({
+            text: newText,
+            checked: false,
+          });
+        }
+      }}
+    >
       <ol className={classes["Todo-list"]}>
         {tasks.map((item, i) => {
           return (
@@ -60,6 +110,7 @@ function TodoList() {
               <label>
                 <input
                   type="checkbox"
+                  name={`${i}_${item.text}`}
                   checked={item.checked}
                   onChange={() => checkItem(i)}
                 />
@@ -69,6 +120,12 @@ function TodoList() {
           );
         })}
       </ol>
+      <input
+        className={classes["Todo-input"]}
+        name="new-item"
+        type="text"
+        placeholder="New todo item..."
+      />
     </form>
   );
 }
