@@ -9,29 +9,30 @@ export const config = {
 
 const db = localForage.createInstance(config);
 export default db;
-
 export const tasksKey = "tasks";
 
-const initialTasks = [
-  {
-    text: "Build tools",
-    checked: true,
-  },
-  {
-    text: "Create page layout",
-    checked: true,
-  },
-  {
-    text: "Input fields",
-    checked: true,
-  },
-  {
-    text: "Offline data storage",
-    checked: true,
-  },
-  {
-    text: "Upload images",
-    checked: false,
-  },
-];
-db.setItem(tasksKey, initialTasks);
+export async function init() {
+  const initialTasks = [
+    {
+      text: "Build tools",
+      checked: true,
+    },
+    {
+      text: "Create page layout",
+      checked: true,
+    },
+    {
+      text: "Input fields",
+      checked: true,
+    },
+    {
+      text: "Offline data storage",
+      checked: true,
+    },
+    {
+      text: "Upload images",
+      checked: false,
+    },
+  ];
+  await db.setItem(tasksKey, initialTasks);
+}
